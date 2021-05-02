@@ -14,8 +14,8 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const { name, description, price, stock, imageUrl } = req.body;
-    const product = new Product({name, description, price, stock, imageUrl});
+    const { name, description, price, stock, category, imageUrl } = req.body;
+    const product = new Product({name, description, price, stock, category, imageUrl});
     await product.save() ;
     res.json({status: 'Product saved'});
 });

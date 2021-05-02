@@ -11,7 +11,19 @@ const CargarProductos = () => {
     const onSubmit = (data,e) => {
     
         console.log(data)
-        
+        fetch('http://localhost:3001/api/products', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(err => console.error(err));
     e.target.reset();
 }
   return (
