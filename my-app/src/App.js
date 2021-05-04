@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Navbar from './components/Navbar';
 import CargarProductos from './components/CargarProductos'
+import ListarProductos from './components/ListarProductos';
 function App() {
   return (
     <div className="App">
@@ -18,10 +19,10 @@ function App() {
           <h1>Inicio</h1>
         </Route>
         <Route path="/CargarStock" exact>
-        <h1>Cargar stock</h1>
+          <CargarProductos/>
         </Route>
         <Route path="/Productos" exact>
-          <CargarProductos/>
+          <ListarProductos/>
         </Route>
       </Switch>
     </div>
