@@ -26,10 +26,11 @@ const CargarProductos = () => {
             .catch(err => console.error(err));
     e.target.reset();
 }
-  return (
- <div className="container mt-5">
-     <h1 className="text-center">Ingreso de stock</h1>
-     <form onSubmit={handleSubmit(onSubmit)}>
+
+ const renderForm = ()=>{
+    return(
+        
+        <form onSubmit={handleSubmit(onSubmit)}>
          
          <div className="row mt-4">
              <div className="col-6">
@@ -60,9 +61,9 @@ const CargarProductos = () => {
                 {errors.name && "Complete el stock"}
              </div>
              <div className="col-6">
-                <input type="number" name="price" className="form-control" type="text" placeholder="Precio"
+                <input type="number" name="price" className="form-control" placeholder="Precio"
                     {
-                        ...register("price",{ required: true, min: 0 , max: 10, message: 'Campo obligatorio' } )
+                        ...register("price",{ required: true, min: 0 , max: 100000, message: 'Campo obligatorio' } )
                     }
                 />
                 {errors.name && "Complete el precio"}
@@ -89,6 +90,15 @@ const CargarProductos = () => {
          </div>
          <button type='submit' width="100%" className='btn btn-primary mt-3 '>Aceptar</button>
      </form>
+    )
+    }
+  return (
+ <div className="container mt-5">
+     <h1 className="text-center">Ingreso de stock</h1>
+     {
+         renderForm()
+     }
+     
 
  </div>
   )
